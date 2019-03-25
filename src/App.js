@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Maze />
+        <Maze width={800} height={800}/>
       </div>
     );
   }
