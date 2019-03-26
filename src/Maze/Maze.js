@@ -13,7 +13,7 @@ class Maze extends Component {
     const fence = generateFence(width, height);
     return (
       <div className="Root">
-        <svg height={height} width={width} viewBox={`0, 0, ${width} ${height}`}>
+        <svg height={height} width={width}>
           <path d={fence + path} stroke="red" strokeWidth="3" fill="Red" />
         </svg>
       </div>
