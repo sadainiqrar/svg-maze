@@ -44,5 +44,5 @@ export function generatePath(matrix, width, height) {
 }
 
 export function generateFence(width, height) {
-  return `M0 0 L0 ${height} L${width} ${height} L${width} 0 L0 0 `;
+  return `M0 0 L0 ${height} M0 0 L${width} 0 M${width} ${height} L${width} 0 M${width} ${height} L${width} ${height} `;
 }
