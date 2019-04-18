@@ -6,23 +6,21 @@ function generateBoxPath(xMultiplier, yMultiplier, w, h, matrix) {
   const x = (xMultiplier + 1) * w;
   const y = (yMultiplier + 1) * h;
   const ceiling =
-    yMultiplier !== 0 &&
-    getOr(-1, `${yMultiplier - 1}.${xMultiplier}`)(matrix) === 0
+    yMultiplier !== 0 && getOr(-1, [yMultiplier - 1, xMultiplier])(matrix) === 0
       ? ""
       : `M${x} ${y} L${x + w} ${y} `;
   const floor =
     yMultiplier !== size(matrix) - 1 &&
-    getOr(-1, `${yMultiplier + 1}.${xMultiplier}`)(matrix) === 0
+    getOr(-1, [yMultiplier + 1, xMultiplier])(matrix) === 0
       ? ""
       : `M${x + w} ${y + h} L${x} ${y + h} `;
   const left =
-    xMultiplier !== 0 &&
-    getOr(-1, `${yMultiplier}.${xMultiplier - 1}`)(matrix) === 0
+    xMultiplier !== 0 && getOr(-1, [yMultiplier, xMultiplier - 1])(matrix) === 0
       ? ""
       : `M${x} ${y} L${x} ${y + h} `;
   const right =
     xMultiplier !== size(getOr(0, "0")(matrix)) - 1 &&
-    getOr(-1, `${yMultiplier}.${xMultiplier + 1}`)(matrix) === 0
+    getOr(-1, [yMultiplier, xMultiplier + 1])(matrix) === 0
       ? ""
       : `M${x + w} ${y + h} L${x + w} ${y} `;
   return `${ceiling}${left}${floor}${right}`;
